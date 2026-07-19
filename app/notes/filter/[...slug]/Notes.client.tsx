@@ -25,7 +25,7 @@ export default function NotesClient({ tag }: NotesClientProps) {
   const search = searchParams.get("search") ?? "";
 
   const { data, isLoading, isError, isPlaceholderData } = useQuery({
-    queryKey: ["notes", page, search, tagSlug],
+    queryKey: ["notes", page, search, tag ?? "all"],
     queryFn: () => fetchNotes({ page, search, tag }),
     refetchOnMount: false,
     placeholderData: keepPreviousData,

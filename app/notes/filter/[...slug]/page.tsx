@@ -64,7 +64,7 @@ export default async function NotesFilterPage({
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ["notes", 1, "", tagSlug],
+    queryKey: ["notes", 1, "", tag ?? "all"],
     queryFn: () => fetchNotes({ page: 1, search: "", tag }),
   });
 
